@@ -60,3 +60,5 @@ const labels = ['colors', 'taste']
 const tree = new Tree(node, labels, 'CART');
 ```
 To create tree we need to provide init node (which can have another nodes etc...), labels which determines features in out training data and type. For now there are only two supported - CART and ID3. To provide new one - you should write own simple  classification algorithm.
+
+Full example how to create Tree you can find in examples/structure.js
