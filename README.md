@@ -1,5 +1,5 @@
 # ML-eduJS
-ML-eduJS is the simple library for using and understand decission tree and learning algorithm for them. I would like to invite you to read the code and understand what's happening under the hood.
+ML-eduJS is the simple library for using and understand Machine Learning Algorithms -for now decission tree and learning algorithm for them. I would like to invite you to read the code and understand what's happening under the hood.
 
 With library you can:
 - implement own decission tree with all of the nodes and leafs
