@@ -9,7 +9,22 @@ With library you can:
 
 WARNING: Speed and optimization is not the main goal of the library
 
-## Creating basic structure elements (Leaf, Node, Tree)
+## 0. Import package
+
+To install package using npm:
+
+```
+npm install ml_edu_js --save
+```
+
+After that I reccomend to assign some properties:
+
+```
+const MLeduJS = require('ml_edu_js');
+const CART = MLeduJS.CART; // the same for other submodules which are used in code
+```
+
+## 1. Creating basic structure elements (Leaf, Node, Tree)
 In this section I will show you simply you can create basic decission tree structure elements and after that - how you can use it.
 
 ### Leaf
@@ -63,7 +78,7 @@ To create tree we need to provide init node (which can have another nodes etc...
 
 Full example how to create Tree you can find in [here](examples/structure.js)
 
-## Decission tree learning algorithms
+## 2. Decission tree learning algorithms
 For noe there are two algorithms impleneted - CART and ID3. In the near future I plan to implement few others for example C4.5 which is exstension to ID3.
 
 ### CART and ID3
