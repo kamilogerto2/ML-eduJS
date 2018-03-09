@@ -1,5 +1,5 @@
 # ML-eduJS
-ML-eduJS is the simple library for using and understand decission tree and learning algorithm for them.
+ML-eduJS is the simple library for using and understand decission tree and learning algorithm for them. I would like to invite you to read the code and understand what's happening under the hood.
 
 With library you can:
 - implement own decission tree with all of the nodes and leafs
@@ -62,3 +62,55 @@ const tree = new Tree(node, labels, 'CART');
 To create tree we need to provide init node (which can have another nodes etc...), labels which determines features in out training data and type. For now there are only two supported - CART and ID3. To provide new one - you should write own simple  classification algorithm.
 
 Full example how to create Tree you can find in [here](examples/structure.js)
+
+## Decission tree learning algorithms
+For noe there are two algorithms impleneted - CART and ID3. In the near future I plan to implement few others for example C4.5 which is exstension to ID3.
+
+### CART and ID3
+Use CART or ID3 in decission tree learning process with library is very simple. You need to define learning data, feature array, pass it to algorithm, build tree and... That's all! After that, you can use tree and classify test data. For know it support only discrete data.
+
+```
+const CART = require('../lib/algorithms/CART');
+
+// define learning data
+const learningData = [
+    ['Green', 'Sweet', 'Apple'],
+    ['Orange', 'Bitter', 'Grape'],
+    ['Orange', 'Sweet', 'Orange'],
+    ['Purple', 'Bitter', 'Plum'],
+];
+
+//define feature labels
+const labels = ['colors', 'taste'];
+
+// init and run algorithm
+const cartAlgorithm = new CART();
+const tree = cartAlgorithm.buildTree(learningData, labels);
+
+// check it ;)
+const prediction = tree.classify(['Purple', 'Bitter', 'Plum']);
+console.log(prediction);
+```
+
+```
+const ID3 = require('../lib/algorithms/ID3');
+
+// define learning data
+const learningData = [
+    ['Green', 'Sweet', 'Apple'],
+    ['Orange', 'Bitter', 'Grape'],
+    ['Orange', 'Sweet', 'Orange'],
+    ['Purple', 'Bitter', 'Plum'],
+];
+
+//define feature labels
+const labels = ['colors', 'taste'];
+
+// init and run algorithm
+const cartAlgorithm = new ID3();
+const tree = cartAlgorithm.buildTree(learningData, labels);
+
+// check it ;)
+const prediction = tree.classify(['Purple', 'Bitter', 'Plum']);
+console.log(prediction);
+```
