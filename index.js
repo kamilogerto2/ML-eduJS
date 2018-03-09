@@ -7,7 +7,7 @@ const Tree = require('./lib/structure/tree');
 const Indicators = require('./lib/qualityIndicators');
 const TreeLoader = require('./lib/utils/treeLoader');
 
-module.exports(
+module.exports = {
     CART,
     ID3,
     TreeLoader,
@@ -16,4 +16,4 @@ module.exports(
     Node,
     Tree,
     Indicators,
-);
+};
