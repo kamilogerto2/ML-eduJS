@@ -1,4 +1,4 @@
-const CART = require('../lib/algorithms/CART');
+const ID3 = require('../lib/algorithms/ID3');
 
 // define learning data
 const learningData = [
@@ -13,10 +13,10 @@ const labels = ['color', 'taste'];
 
 // init and run algorithm, turn on descriptive mode
 const descriptiveMode = true;
-const cartAlgorithm = new CART(descriptiveMode);
+const cartAlgorithm = new ID3(descriptiveMode);
 const tree = cartAlgorithm.buildTree(learningData, labels);
 
 // check it ;)
- const prediction = tree.classify(['Purple', 'Bitter', 'Plum']);
- console.log(`\n Prediction for our test sample:`);
- console.log(prediction);
+const prediction = tree.classify(['Purple', 'Bitter', 'Plum']);
+console.log(`\n Prediction for our test sample:`);
+console.log(prediction);
