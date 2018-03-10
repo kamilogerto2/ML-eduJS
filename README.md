@@ -6,6 +6,7 @@ With library you can:
 - use predefined algorithm for decission tree learning - CART, ID3
 - save tree to json file with readable form
 - save tree to json with form which can be reused later
+- **descriptive mode**
 
 WARNING: Speed and optimization is not the main goal of the library
 
@@ -71,7 +72,7 @@ Now we have all what is needed to implement full decission tree. It's not comfor
 
 To create decission tree we will use elements which we provide earlier:
 ```
-const labels = ['colors', 'taste']
+const labels = ['color', 'taste']
 const tree = new Tree(node, labels, 'CART');
 ```
 To create tree we need to provide init node (which can have another nodes etc...), labels which determines features in out training data and type. For now there are only two supported - CART and ID3. To provide new one - you should write own simple  classification algorithm.
@@ -96,7 +97,7 @@ const learningData = [
 ];
 
 //define feature labels
-const labels = ['colors', 'taste'];
+const labels = ['color', 'taste'];
 
 // init and run algorithm
 const cartAlgorithm = new CART();
@@ -119,13 +120,20 @@ const learningData = [
 ];
 
 //define feature labels
-const labels = ['colors', 'taste'];
+const labels = ['color', 'taste'];
 
 // init and run algorithm
-const cartAlgorithm = new ID3();
-const tree = cartAlgorithm.buildTree(learningData, labels);
+const id3Algorithm = new ID3();
+const tree = id3Algorithm.buildTree(learningData, labels);
 
 // check it ;)
 const prediction = tree.classify(['Purple', 'Bitter', 'Plum']);
 console.log(prediction);
+```
+
+To turn on descriptive mode - pass true value to algorithm constructor. With descriptive mode you can observe results of learning algorithm on the console. It will work effectivly for small trees. 
+
+```
+const descriptiveMode = true;
+const cartAlgorithm = new ID3(descriptiveMode);
 ```
