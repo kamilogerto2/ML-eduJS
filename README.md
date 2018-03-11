@@ -1,5 +1,5 @@
 # ML-eduJS
-ML-eduJS is the simple library for using and understand Machine Learning Algorithms -for now decission tree and learning algorithm for them. I would like to invite you to read the code and understand what's happening under the hood.
+ML-eduJS is the simple library for using and understand Machine Learning Algorithms - for now decission tree and learning algorithm for them. I would like to invite you to read the code and understand what's happening under the hood. It works only on server side but maybe in future I will create browser side version.
 
 With library you can:
 - implement own decission tree with all of the nodes and leafs
@@ -26,10 +26,10 @@ const CART = MLeduJS.CART; // the same for other submodules which are used in co
 ```
 
 ## 1. Creating basic structure elements (Leaf, Node, Tree)
-In this section I will show you simply you can create basic decission tree structure elements and after that - how you can use it.
+In this section I will show how simply you can create basic decission tree structure elements and after that - how you can use it.
 
 ### Leaf
-The smalles object in the decission tree is leaf. Leaf provides you specific classes. To create leaf do as follows:
+The smallest object in decission tree is leaf. Leaf provides you specific classes. To create leaf do as follows:
 ```
 const predictions = [{'Orange': 0.5}, {'Apple': 0.5}];
 const leaf = new Leaf(predictions);
@@ -44,9 +44,9 @@ const learningData = [
     ['Orange', 'Bitter', 'Grape'],
 ];
 ```
-In our data two first columns are feature and last column is label - class which is expected to recognize.
+In our data, two first columns are features and last column - label (class which is expected to recognize).
 
-IMPORTANT: Label (class) need to be always in the last column.
+**IMPORTANT: Label (class) need to be always in the last column.**
 
 Now we can create our node which has these specific data:
 ```
@@ -68,25 +68,26 @@ node.defineQuestion('color');
 ```
 
 ### Tree
-Now we have all what is needed to implement full decission tree. It's not comfortable to do it manually but there is another way - learning algorithm or read from JSON file.
+Now we have all information that's needed to implement full decission tree. It's not comfortable to do it manually but there is another way - learning algorithm or read from JSON file.
 
 To create decission tree we will use elements which we provide earlier:
 ```
 const labels = ['color', 'taste']
 const tree = new Tree(node, labels, 'CART');
 ```
-To create tree we need to provide init node (which can have another nodes etc...), labels which determines features in out training data and type. For now there are only two supported - CART and ID3. To provide new one - you should write own simple  classification algorithm.
+To create tree we need to provide init node (which can have another nodes etc...), labels which determines features in out training data and type. There are two supported - CART and ID3. To provide new one - you should write own simple classification algorithm.
 
-Full example how to create Tree you can find in [here](examples/structure.js)
+Full example how to create Tree you can find [here](examples/structure.js)
 
 ## 2. Decission tree learning algorithms
-For noe there are two algorithms impleneted - CART and ID3. In the near future I plan to implement few others for example C4.5 which is exstension to ID3.
+As I mentioned - there are two algorithms impleneted - CART and ID3. In the near future I plan to implement few others for example C4.5 which is exstension to ID3.
 
 ### CART and ID3
 Use CART or ID3 in decission tree learning process with library is very simple. You need to define learning data, feature array, pass it to algorithm, build tree and... That's all! After that, you can use tree and classify test data. For know it support only discrete data.
 
 ```
-const CART = require('../lib/algorithms/CART');
+const MLeduJS = require('ml_edu_js');
+const CART = MLeduJS.CART;
 
 // define learning data
 const learningData = [
@@ -109,7 +110,8 @@ console.log(prediction);
 ```
 
 ```
-const ID3 = require('../lib/algorithms/ID3');
+const MLeduJS = require('ml_edu_js');
+const ID3 = MLeduJS.ID3;
 
 // define learning data
 const learningData = [
@@ -131,7 +133,7 @@ const prediction = tree.classify(['Purple', 'Bitter', 'Plum']);
 console.log(prediction);
 ```
 
-To turn on descriptive mode - pass true value to algorithm constructor. With descriptive mode you can observe results of learning algorithm on the console. It will work effectivly for small trees. 
+To turn on descriptive mode - pass true value to algorithm constructor. With descriptive mode you can observe results of learning algorithm in the console. It will work effectivly for small trees. 
 
 ```
 const descriptiveMode = true;
