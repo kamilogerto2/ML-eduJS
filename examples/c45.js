@@ -3,7 +3,7 @@ const C45 = require('../lib/algorithms/C45');
 // define learning data
 const learningData = [
     ['Green', 8, 'Apple'],
-    ['Orange', 1, 'Grape'],
+    ['Orange', '?' , 'Grape'],
     ['Orange', 6, 'Orange'],
     ['Purple', 7, 'Plum'],
     ['Red', 5, 'Orange'],
