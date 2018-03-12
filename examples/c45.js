@@ -27,8 +27,9 @@ const labels = {
 const descriptiveMode = true;
 const cartAlgorithm = new C45(descriptiveMode);
 const tree = cartAlgorithm.buildTree(learningData, labels);
+tree.printTree();
 
 // check it ;)
-const prediction = tree.classify(['Red', 8, 'Apple']);
+const prediction = tree.classify(['?', '?', 'Orange']);
 console.log(`\n Prediction for our test sample:`);
 console.log(prediction);
