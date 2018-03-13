@@ -12,8 +12,10 @@ const learningData = [
 const labels = ['color', 'taste'];
 
 // init and run algorithm, turn on descriptive mode
-const descriptiveMode = true;
-const cartAlgorithm = new CART(descriptiveMode);
+const options = {
+    descriptive: true,
+};
+const cartAlgorithm = new CART(options);
 const tree = cartAlgorithm.buildTree(learningData, labels);
 
 // check it ;)

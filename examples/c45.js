@@ -3,7 +3,7 @@ const C45 = require('../lib/algorithms/C45');
 // define learning data
 const learningData = [
     ['Green', 8, 'Apple'],
-    ['Orange', '?' , 'Grape'],
+    ['Orange', 1 , 'Grape'],
     ['Orange', 6, 'Orange'],
     ['Purple', 7, 'Plum'],
     ['Red', 5, 'Orange'],
@@ -23,10 +23,14 @@ const labels = {
     }
 };
 
-// init and run algorithm, turn on descriptive mode
-const descriptiveMode = true;
-const cartAlgorithm = new C45(descriptiveMode);
+// init and run algorithm, turn on descriptive mode and with prunning
+const options = {
+    descriptive: true,
+    prune: true
+};
+const cartAlgorithm = new C45(options);
 const tree = cartAlgorithm.buildTree(learningData, labels);
+
 tree.printTree();
 
 // check it ;)
