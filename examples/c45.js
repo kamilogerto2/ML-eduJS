@@ -31,6 +31,7 @@ const options = {
 const cartAlgorithm = new C45(options);
 const tree = cartAlgorithm.buildTree(learningData, labels);
 
+// print tree in console
 tree.printTree();
 
 // check it ;)
