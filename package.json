@@ -1,6 +1,6 @@
 {
   "name": "ml_edu_js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Simple machine learing library which should be using for learning algotihms.",
   "main": "index.js",
   "scripts": {
