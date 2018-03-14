@@ -14,5 +14,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kamilogerto2/ML-eduJS.git"
+  },
+  "dependencies": {
+    "fast-csv": "^2.4.1"
   }
 }
