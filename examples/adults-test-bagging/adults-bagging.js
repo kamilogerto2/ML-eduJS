@@ -1,6 +1,7 @@
 const csv = require('fast-csv');
 const fs = require('fs');
 const Bagging = require('../../lib/algorithms/bagging');
+const BinaryModelMetrics = require('../../lib/utils/binaryModelMetrics');
 
 const trainingStream = fs.createReadStream('adult-training.csv');
 const testStream = fs.createReadStream('adult-test.csv');
@@ -92,26 +93,38 @@ const csvLearningStream = csv()
     .on("end", () => {
         const baggingAlgorithm = new Bagging();
         trees = baggingAlgorithm.buildTreesBag(trainingSet, labels);
-        //console.log(trees);
         testTree();
     });
 
 let totalCount = 0;
 let errorCount = 0;
 let predictions;
+
+let truePositives = 0; // if both class is '>50K'
+let falsePositives = 0; // if class is '<=50K' but predict '>50K'
+let trueNegatives = 0; // if both class is '<=50K'
+let falseNegatives = 0; // if class is '>50K' but predict '<=50K'
+
 const csvTestStream = csv()
     .on("data", data => {
         if(data.length) {
             totalCount++;
             predictions = trees.classify(data);
-            if(predictions !== data[data.length - 1]) {
-                errorCount++;
+
+            if(data[data.length - 1].trim() === '>50K') {
+                predictions.trim() === '>50K' ? truePositives++ : falseNegatives++;
+            } else {
+                predictions.trim() === '>50K' ? falsePositives++ : trueNegatives++;
             }
         }
     })
     .on("end", () => {
-        console.log(`Total count: ${totalCount}`);
-        console.log(`Error count: ${errorCount}`);
+        const metricLibrary = new BinaryModelMetrics();
+        metricLibrary.initData(truePositives, trueNegatives, falsePositives, falseNegatives);
+        console.log(`Accuracy: ${metricLibrary.accuracy()}`);
+        console.log(`Precision: ${metricLibrary.precision()}`);
+        console.log(`Recall: ${metricLibrary.recall()}`);
+        console.log(`f1: ${metricLibrary.f1Score()}`);
     });
 
 function testTree() {
