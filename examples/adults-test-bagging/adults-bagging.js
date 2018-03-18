@@ -120,6 +120,10 @@ const csvTestStream = csv()
     })
     .on("end", () => {
         const metricLibrary = new BinaryModelMetrics();
+        console.log(truePositives);
+        console.log(trueNegatives);
+        console.log(falsePositives);
+        console.log(falseNegatives);
         metricLibrary.initData(truePositives, trueNegatives, falsePositives, falseNegatives);
         console.log(`Accuracy: ${metricLibrary.accuracy()}`);
         console.log(`Precision: ${metricLibrary.precision()}`);
