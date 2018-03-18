@@ -14,8 +14,16 @@ const learningData = [
 describe('Algorithms', function() {
     describe('CART', function() {
         const cartAlgorithm = new CART();
-        const labels = ['colors', 'number'];
-
+        const labels = {
+            colors: {
+                type: 'string',
+                order: 0
+            },
+            number: {
+                type: 'string',
+                order: 1
+            }
+        };
         it('algorithm object should be created', function() {
             assert.equal(cartAlgorithm.type, 'CART');
         });
@@ -32,8 +40,16 @@ describe('Algorithms', function() {
 
     describe('ID3', function() {
         const id3Algorithm = new ID3();
-        const labels = ['colors', 'number'];
-
+        const labels = {
+            colors: {
+                type: 'string',
+                order: 0
+            },
+            number: {
+                type: 'string',
+                order: 1
+            }
+        };
         it('algorithm object should be created', function() {
             assert.equal(id3Algorithm.type, 'ID3');
         });

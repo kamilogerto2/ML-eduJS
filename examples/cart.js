@@ -9,8 +9,16 @@ const learningData = [
 ];
 
 //define feature labels
-const labels = ['color', 'taste'];
-
+const labels = {
+    color: {
+        type: 'string',
+        order: 0
+    },
+    taste: {
+        type: 'string',
+        order: 1
+    }
+};
 // init and run algorithm, turn on descriptive mode
 const options = {
     descriptive: true,
