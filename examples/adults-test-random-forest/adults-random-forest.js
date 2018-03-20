@@ -97,8 +97,8 @@ const csvLearningStream = csv()
             featureSubset: 5,
             learningMethod: 'C45',
         };
-        const baggingAlgorithm = new RadnomForest(options);
-        trees = baggingAlgorithm.buildTreesBag(trainingSet, labels);
+        const randomForestAlgorithm = new RadnomForest(options);
+        trees = randomForestAlgorithm.buildTreesBag(trainingSet, labels);
         testTree();
     });
 
