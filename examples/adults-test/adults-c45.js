@@ -96,7 +96,7 @@ const csvLearningStream = csv()
         const options = {
             descriptive: false,
             prune: true,
-            errorPruneThreshold: 0.005
+            errorPruneThreshold: 0.001
         };
         const cartAlgorithm = new C45(options);
         tree = cartAlgorithm.buildTree(trainingSet, labels);
@@ -119,9 +119,9 @@ const csvTestStream = csv()
             predictions = tree.classify(data);
 
             if(data[data.length - 1].trim() === '>50K') {
-                predictions[0].hasOwnProperty(' >50K') ? truePositives++ : falseNegatives++;
+                predictions[0].hasOwnProperty('>50K') ? truePositives++ : falseNegatives++;
             } else {
-                predictions[0].hasOwnProperty(' >50K') ? falsePositives++ : trueNegatives++;
+                predictions[0].hasOwnProperty('>50K') ? falsePositives++ : trueNegatives++;
             }
 
             if(!predictions[0].hasOwnProperty(data[data.length - 1])) {

@@ -91,7 +91,12 @@ const csvLearningStream = csv()
         data.length ? trainingSet.push(data) :  null;
     })
     .on("end", () => {
-        const baggingAlgorithm = new Bagging();
+        const options = {
+            treesCount: 200,
+            subsetItemsCount: 100,
+            learningMethod: 'C45',
+        };
+        const baggingAlgorithm = new Bagging(options);
         trees = baggingAlgorithm.buildTreesBag(trainingSet, labels);
         testTree();
     });
@@ -120,10 +125,6 @@ const csvTestStream = csv()
     })
     .on("end", () => {
         const metricLibrary = new BinaryModelMetrics();
-        console.log(truePositives);
-        console.log(trueNegatives);
-        console.log(falsePositives);
-        console.log(falseNegatives);
         metricLibrary.initData(truePositives, trueNegatives, falsePositives, falseNegatives);
         console.log(`Accuracy: ${metricLibrary.accuracy()}`);
         console.log(`Precision: ${metricLibrary.precision()}`);
