@@ -29,13 +29,14 @@ const CART = MLeduJS.CART; // the same for other submodules which are used in co
 With ML-eduJS you can build, test and use your own decision trees. Library implements basic structure, but also offers learning algorithms and ensemble algorithms.
 
 Available learning algorithms:
--CART
--ID3
--C4.5
+- CART
+- ID3
+- C4.5
 
 Available ensemble algorithms:
--bagging
+- bagging
 
 - [Decision tree - basic structure](https://github.com/kamilogerto2/ML-eduJS/wiki/Decision-Tree---basic-structure)
 - [Decision tree - learning algorithms](https://github.com/kamilogerto2/ML-eduJS/wiki/Decision-Tree---learning-algorithms)
+- [Decision tree - ensemble algorithms](https://github.com/kamilogerto2/ML-eduJS/wiki/Decision-Tree---ensemble-algorithms)
 
