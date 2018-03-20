@@ -72,7 +72,7 @@ describe('Algorithms', function() {
                 order: 0
             },
             number: {
-                type: 'string',
+                type: 'numeric',
                 order: 1
             }
         };
@@ -81,7 +81,7 @@ describe('Algorithms', function() {
             assert.equal(c45Algorithm.type, 'C45');
         });
 
-        it('tree should be built without errors', function() {
+        it('tree should be built without errors with numeric values', function() {
             assert.equal(typeof c45Algorithm.buildTree(learningData, labels), 'object');
         });
 
