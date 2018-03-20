@@ -36,6 +36,7 @@ Available learning algorithms:
 Available ensemble algorithms:
 - bagging
 
+More details you can find in Wiki:
 - [Decision tree - basic structure](https://github.com/kamilogerto2/ML-eduJS/wiki/Decision-Tree---basic-structure)
 - [Decision tree - learning algorithms](https://github.com/kamilogerto2/ML-eduJS/wiki/Decision-Tree---learning-algorithms)
 - [Decision tree - ensemble algorithms](https://github.com/kamilogerto2/ML-eduJS/wiki/Decision-Tree---ensemble-algorithms)
